@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://kit.fontawesome.com/2a373ef376.js" crossorigin="anonymous"></script>
+        <title>Memo List</title>
+        <link rel="stylesheet" href="css/common.css" />
+    </head>
+    <body>
+        <div class="container">
+            <aside>
+                <div class="profile">
+                    <div class="profile_img">
+                        <img src="img/profile.jpg" alt="" />
+                    </div>
+                    <h1><a href="#">LOGO</a></h1>
+                </div>
+                <form action="/create" method="get">
+                    <button class="create_btn" type="submit"><i class="fa-solid fa-plus"></i></button>
+                </form>
+            </aside>
+            <article>
+                <div class="wrap">
+                    <% data.forEach(function (memo, index) { %>
+                    <section>
+                        <div class="section_header">
+                            <h2><%= memo.title %></h2>
+                            <div class="header_btns">
+                                <a href="/modify/<%= memo.number %>"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="/delete/<%= memo.number %>"><i class="fa-solid fa-xmark"></i></a>
+                            </div>
+                        </div>
+                        <p class="section_date"><%= memo.date %></p>
+                        <div class="section_main"><%= memo.main %></div>
+                    </section>
+                    <% }); %>
+                </div>
+            </article>
+        </div>
+        <button class="top_btn"><i class="fa-solid fa-up-long"></i></button>
+    </body>
+</html>

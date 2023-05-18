@@ -1,0 +1,13 @@
+@charset 'UTF-8';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 502px;
+    height: 663px;
+    background: #eee;
+}
