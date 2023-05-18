@@ -12,7 +12,8 @@ a {
     text-decoration: none;
 }
 button,
-input {
+input,
+textarea {
     border: none;
     outline: none;
     background: transparent;
@@ -73,62 +74,6 @@ article {
 }
 article::-webkit-scrollbar {
     display: none;
-}
-article .wrap {
-    display: grid;
-    grid-template-columns: 280px 280px 280px;
-    gap: 37px;
-    width: 914px;
-    margin-top: 86px;
-    margin-left: 136px;
-}
-article .wrap section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 280px;
-    height: 280px;
-    background: #bae0ff;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
-}
-article section .section_header {
-    width: 267px;
-    height: 25px;
-    line-height: 25px;
-    padding-left: 8px;
-    padding-right: 4.81px;
-}
-article section .section_header h2 {
-    float: left;
-    font-size: 16px;
-}
-article section .header_btns {
-    float: right;
-}
-article section .section_header .header_btns a {
-    float: left;
-    height: 25px;
-    color: #373737;
-    font-size: 19px;
-}
-article section .section_header .header_btns a:first-child {
-    font-size: 15px;
-    line-height: 24px;
-    margin-right: 6px;
-}
-article section .section_date {
-    width: 100%;
-    text-align: center;
-    font-size: 12px;
-    color: #727272;
-    padding: 3px 0;
-    border-top: 1px solid #a3a3a3;
-}
-article section .section_main {
-    width: 267px;
-    height: 223px;
-    padding: 5px;
 }
 
 .top_btn {

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://kit.fontawesome.com/2a373ef376.js" crossorigin="anonymous"></script>
+        <title>Modify</title>
+        <link rel="stylesheet" href="/css/common.css" />
+        <link rel="stylesheet" href="/css/modify.css" />
+    </head>
+    <body>
+        <div class="container">
+            <aside>
+                <div class="profile">
+                    <div class="profile_img">
+                        <img src="/img/profile.jpg" alt="" />
+                    </div>
+                    <h1><a href="#">LOGO</a></h1>
+                </div>
+            </aside>
+            <article>
+                <div class="wrap">
+                    <form method="post">
+                        <section>
+                            <div class="section_header">
+                                <input type="text" name="title" maxlength="20" value="<%= data.title %>" />
+                                <div class="header_btns">
+                                    <button type="submit"><i class="fa-solid fa-check"></i></button>
+                                    <a href="/"><i class="fa-solid fa-xmark"></i></a>
+                                </div>
+                            </div>
+                            <p class="section_date"><%= data.date %></p>
+                            <div class="section_main">
+                                <textarea name="main" maxlength="200"><%= data.main %></textarea>
+                            </div>
+                        </section>
+                    </form>
+                </div>
+            </article>
+        </div>
+    </body>
+</html>

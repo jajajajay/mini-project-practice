@@ -1,3 +1,4 @@
+const { request } = require('http');
 const mysql = require('mysql'),
     fs = require('fs'),
     ejs = require('ejs'),
@@ -35,6 +36,32 @@ app.get('/', (request, response) => {
                 })
             );
         });
+    });
+});
+
+app.get('/modify/:id', (request, response) => {
+    fs.readFile('public/modify.html', 'utf-8', (error, data) => {
+        connection.query('SELECT * FROM memo WHERE number = ?', [request.params.id], (error, results) => {
+            if (error) {
+                throw error;
+            }
+            response.send(
+                ejs.render(data, {
+                    data: results[0],
+                })
+            );
+        });
+    });
+});
+
+app.post('/modify/:id', (request, response) => {
+    const body = request.body;
+
+    connection.query('UPDATE memo SET title = ?, main = ? WHERE number = ?', [body.title, body.main, request.params.id], (error, results) => {
+        if (error) {
+            throw error;
+        }
+        response.redirect('/');
     });
 });
 

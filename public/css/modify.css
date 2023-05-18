@@ -1,0 +1,66 @@
+@charset 'UTF-8';
+
+article .wrap {
+    width: 914px;
+    margin-top: 86px;
+    margin-left: 136px;
+}
+article .wrap section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 523px;
+    height: 523px;
+    background: #bae0ff;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+}
+article section .section_header {
+    width: 498.72px;
+    height: 46.7px;
+    line-height: 46.7px;
+    padding-left: 8px;
+    padding-right: 4.81px;
+}
+article section .section_header input {
+    float: left;
+    width: 410px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 46.7px;
+}
+article section .header_btns {
+    float: right;
+}
+article section .section_header .header_btns button {
+    float: left;
+    height: 46.7px;
+    color: #373737;
+    font-size: 29px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+article section .section_header .header_btns a {
+    float: left;
+    height: 46.7px;
+    color: #373737;
+    font-size: 33px;
+}
+article section .section_date {
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    color: #727272;
+    padding: 7px 0;
+    border-top: 1px solid #a3a3a3;
+}
+article section .section_main {
+    width: 498.72px;
+    height: 416.53px;
+    padding: 5px;
+}
+article section .section_main textarea {
+    width: 498.72px;
+    height: 416.53px;
+    font-size: 18px;
+}
