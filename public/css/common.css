@@ -9,7 +9,12 @@
 }
 
 a {
+    color: #000;
     text-decoration: none;
+}
+ul,
+li {
+    list-style: none;
 }
 button,
 input,
@@ -20,13 +25,17 @@ textarea {
 }
 
 body {
+    display: flex;
+    align-items: center;
+    height: 100vh;
     overflow: hidden;
+    background: url(/img/bg.jpg);
 }
 
 .container {
     display: flex;
     width: 1440px;
-    height: 100vh;
+    height: 900px;
 }
 
 aside {
@@ -36,7 +45,12 @@ aside {
     width: 253px;
     padding: 43px 0;
     text-align: center;
+    background: #fff;
     border-right: 1px solid #ddd;
+}
+aside .profile {
+    flex-basis: 300px;
+    width: 100%;
 }
 aside .profile .profile_img {
     width: 204px;
@@ -57,7 +71,24 @@ aside .profile .profile_img img {
 aside .profile h1 a {
     color: #000;
 }
+aside nav {
+    flex-basis: 500px;
+    width: 100%;
+    padding-top: 20px;
+}
+aside nav li a {
+    display: block;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    background: #fff;
+    border: 1px solid #5e5e5e;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
 aside .create_btn {
+    /* flex-basis: 65px; */
     width: 65px;
     height: 65px;
     font-size: 32px;
@@ -71,11 +102,20 @@ aside .create_btn {
 article {
     width: 1187px;
     overflow-y: scroll;
+    background: #fff;
 }
 article::-webkit-scrollbar {
     display: none;
 }
-
+article .wrap section.blue {
+    background: #bae0ff;
+}
+article .wrap section.pink {
+    background: #ffd2e9;
+}
+article .wrap section.yellow {
+    background: #ffedba;
+}
 .top_btn {
     position: fixed;
     right: 29px;

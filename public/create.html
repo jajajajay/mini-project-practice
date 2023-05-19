@@ -26,11 +26,16 @@
                     <form method="post">
                         <section>
                             <div class="color_select">
-                                <input type="radio" name="color" value="#bae0ff" checked />
-                                <input type="radio" name="color" value="#ffd2e9" />
-                                <input type="radio" name="color" value="#ffedba" />
+                                <input type="radio" name="color" value="blue" checked />
+                                <input type="radio" name="color" value="pink" />
+                                <input type="radio" name="color" value="yellow" />
                             </div>
                             <div class="section_header">
+                                <select name="menu">
+                                    <option selected>전체</option>
+                                    <option value="menu1">메뉴1</option>
+                                    <option value="menu2">메뉴2</option>
+                                </select>
                                 <input type="text" name="title" maxlength="20" />
                                 <div class="header_btns">
                                     <button type="submit" title="확인"><i class="fa-solid fa-check"></i></button>

@@ -12,9 +12,12 @@ let colors = document.querySelectorAll(".color_select > input[name='color']"),
     section = document.querySelector('section');
 
 colors.forEach((color) => {
+    if (section.classList[0] === color.value) {
+        color.checked = true;
+    }
     color.addEventListener('change', (e) => {
         if (e.target.checked) {
-            section.style.background = e.target.value;
+            section.className = e.target.value;
         }
     });
 });

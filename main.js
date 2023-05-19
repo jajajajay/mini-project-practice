@@ -39,6 +39,36 @@ app.get('/', (request, response) => {
     });
 });
 
+app.get('/menu1', (request, response) => {
+    fs.readFile('public/menu1.html', 'utf-8', (error, data) => {
+        connection.query("SELECT * FROM memo WHERE menu = 'menu1'", (error, results) => {
+            if (error) {
+                throw error;
+            }
+            response.send(
+                ejs.render(data, {
+                    data: results,
+                })
+            );
+        });
+    });
+});
+
+app.get('/menu2', (request, response) => {
+    fs.readFile('public/menu2.html', 'utf-8', (error, data) => {
+        connection.query("SELECT * FROM memo WHERE menu = 'menu2'", (error, results) => {
+            if (error) {
+                throw error;
+            }
+            response.send(
+                ejs.render(data, {
+                    data: results,
+                })
+            );
+        });
+    });
+});
+
 app.get('/modify/:id', (request, response) => {
     fs.readFile('public/modify.html', 'utf-8', (error, data) => {
         connection.query('SELECT * FROM memo WHERE number = ?', [request.params.id], (error, results) => {
@@ -75,7 +105,7 @@ app.get('/delete/:id', (request, response) => {
 app.post('/create', (request, response) => {
     const body = request.body;
 
-    connection.query("INSERT INTO memo (title, date, main, color) VALUES (?, DATE_FORMAT(now(), '%Y-%m-%d'), ?, ?)", [body.title, body.main, body.color], (error, results) => {
+    connection.query("INSERT INTO memo (title, date, main, color, menu) VALUES (?, DATE_FORMAT(now(), '%Y-%m-%d'), ?, ?, ?)", [body.title, body.main, body.color, body.menu], (error, results) => {
         if (error) {
             throw error;
         }
@@ -86,7 +116,7 @@ app.post('/create', (request, response) => {
 app.post('/modify/:id', (request, response) => {
     const body = request.body;
 
-    connection.query('UPDATE memo SET title = ?, main = ?, color = ? WHERE number = ?', [body.title, body.main, body.color, request.params.id], (error, results) => {
+    connection.query('UPDATE memo SET title = ?, main = ?, color = ?, menu = ? WHERE number = ?', [body.title, body.main, body.color, body.menu, request.params.id], (error, results) => {
         if (error) {
             throw error;
         }

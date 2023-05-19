@@ -50,9 +50,19 @@ article section .section_header {
     padding-left: 8px;
     padding-right: 4.81px;
 }
+article section .section_header select {
+    appearance: none;
+    float: left;
+    border: none;
+    outline: none;
+    background: transparent;
+    line-height: 46.7px;
+    margin-right: 10px;
+    padding: 0 10px;
+}
 article section .section_header input {
     float: left;
-    width: 410px;
+    width: 300px;
     font-size: 20px;
     font-weight: bold;
     line-height: 46.7px;
