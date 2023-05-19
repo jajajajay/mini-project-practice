@@ -54,10 +54,39 @@ app.get('/modify/:id', (request, response) => {
     });
 });
 
+app.get('/create', (request, response) => {
+    fs.readFile('public/create.html', 'utf-8', (error, data) => {
+        if (error) {
+            throw error;
+        }
+        response.send(data);
+    });
+});
+
+app.get('/delete/:id', (request, response) => {
+    connection.query('DELETE FROM memo WHERE number = ?', [request.params.id], (error) => {
+        if (error) {
+            throw error;
+        }
+        response.redirect('/');
+    });
+});
+
+app.post('/create', (request, response) => {
+    const body = request.body;
+
+    connection.query("INSERT INTO memo (title, date, main, color) VALUES (?, DATE_FORMAT(now(), '%Y-%m-%d'), ?, ?)", [body.title, body.main, body.color], (error, results) => {
+        if (error) {
+            throw error;
+        }
+        response.redirect('/');
+    });
+});
+
 app.post('/modify/:id', (request, response) => {
     const body = request.body;
 
-    connection.query('UPDATE memo SET title = ?, main = ? WHERE number = ?', [body.title, body.main, request.params.id], (error, results) => {
+    connection.query('UPDATE memo SET title = ?, main = ?, color = ? WHERE number = ?', [body.title, body.main, body.color, request.params.id], (error, results) => {
         if (error) {
             throw error;
         }

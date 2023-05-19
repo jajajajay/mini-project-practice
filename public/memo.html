@@ -14,23 +14,32 @@
             <aside>
                 <div class="profile">
                     <div class="profile_img">
-                        <img src="img/profile.jpg" alt="" />
+                        <img src="img/profile.jpg" alt="프로필사진" />
                     </div>
-                    <h1><a href="#">LOGO</a></h1>
+                    <h1><a href="/">메모</a></h1>
                 </div>
                 <form action="/create" method="get">
-                    <button class="create_btn" type="submit"><i class="fa-solid fa-plus"></i></button>
+                    <button class="create_btn" type="submit" title="추가"><i class="fa-solid fa-plus"></i></button>
                 </form>
             </aside>
             <article>
                 <div class="wrap">
                     <% data.forEach(function (memo, index) { %>
-                    <section>
+                    <section style="background: <%= memo.color %>">
+                        <div class="delete_confirm">
+                            <div class="confirm_body">
+                                <p>삭제하시겠습니까?</p>
+                                <div class="confirm_btns">
+                                    <a href="/delete/<%= memo.number %>">예</a>
+                                    <a href="/">아니오</a>
+                                </div>
+                            </div>
+                        </div>
                         <div class="section_header">
                             <h2><%= memo.title %></h2>
                             <div class="header_btns">
-                                <a href="/modify/<%= memo.number %>"><i class="fa-solid fa-pen-to-square"></i></a>
-                                <a href="/delete/<%= memo.number %>"><i class="fa-solid fa-xmark"></i></a>
+                                <a href="/modify/<%= memo.number %>" title="수정"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <button title="삭제"><i class="fa-solid fa-xmark"></i></button>
                             </div>
                         </div>
                         <p class="section_date"><%= memo.date %></p>
@@ -40,6 +49,23 @@
                 </div>
             </article>
         </div>
-        <button class="top_btn"><i class="fa-solid fa-up-long"></i></button>
+        <button class="top_btn" title="위로가기"><i class="fa-solid fa-up-long"></i></button>
+        <script>
+            let article = document.querySelector('article'),
+                topBtn = document.querySelector('.top_btn');
+
+            topBtn.addEventListener('click', () => {
+                article.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            let deleteBtn = document.querySelectorAll('.header_btns>button'),
+                deleteConfirm = document.querySelectorAll('.delete_confirm');
+
+            deleteBtn.forEach((button, index) => {
+                button.addEventListener('click', () => {
+                    deleteConfirm[index].style.display = 'block';
+                });
+            });
+        </script>
     </body>
 </html>

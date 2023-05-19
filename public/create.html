@@ -5,10 +5,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="https://kit.fontawesome.com/2a373ef376.js" crossorigin="anonymous"></script>
-        <title>Modify</title>
-        <link rel="stylesheet" href="/css/common.css" />
-        <link rel="stylesheet" href="/css/sub.css" />
-        <script src="/textarea.js" defer></script>
+        <title>Create</title>
+        <link rel="stylesheet" href="./css/common.css" />
+        <link rel="stylesheet" href="./css/sub.css" />
+        <script src="./date.js" defer></script>
+        <script src="./textarea.js" defer></script>
     </head>
     <body>
         <div class="container">
@@ -23,22 +24,22 @@
             <article>
                 <div class="wrap">
                     <form method="post">
-                        <section style="background: <%= data.color %>">
+                        <section>
                             <div class="color_select">
-                                <input type="radio" name="color" value="#bae0ff" />
+                                <input type="radio" name="color" value="#bae0ff" checked />
                                 <input type="radio" name="color" value="#ffd2e9" />
                                 <input type="radio" name="color" value="#ffedba" />
                             </div>
                             <div class="section_header">
-                                <input type="text" name="title" maxlength="20" value="<%= data.title %>" />
+                                <input type="text" name="title" maxlength="20" />
                                 <div class="header_btns">
                                     <button type="submit" title="확인"><i class="fa-solid fa-check"></i></button>
                                     <a href="/" title="취소"><i class="fa-solid fa-xmark"></i></a>
                                 </div>
                             </div>
-                            <p class="section_date"><%= data.date %></p>
+                            <p class="section_date create_date"></p>
                             <div class="section_main">
-                                <textarea name="main" maxlength="200"><%= data.main %></textarea>
+                                <textarea name="main" maxlength="200"></textarea>
                                 <span class="txt_count">0</span>
                             </div>
                         </section>

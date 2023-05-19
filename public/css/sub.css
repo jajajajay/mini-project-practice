@@ -5,7 +5,35 @@ article .wrap {
     margin-top: 86px;
     margin-left: 136px;
 }
+article .color_select {
+    position: absolute;
+    top: 0;
+    left: -50px;
+}
+article .color_select input[type='radio'] {
+    appearance: none;
+    display: block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    margin-bottom: 5px;
+}
+article .color_select input[type='radio']:nth-child(1) {
+    background: #bae0ff;
+}
+article .color_select input[type='radio']:nth-child(2) {
+    background: #ffd2e9;
+}
+article .color_select input[type='radio']:nth-child(3) {
+    background: #ffedba;
+}
+article .color_select input[type='radio']:checked {
+    border: 3px solid #ffffff;
+}
 article .wrap section {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -55,6 +83,7 @@ article section .section_date {
     border-top: 1px solid #a3a3a3;
 }
 article section .section_main {
+    position: relative;
     width: 498.72px;
     height: 416.53px;
     padding: 5px;
@@ -63,4 +92,10 @@ article section .section_main textarea {
     width: 498.72px;
     height: 416.53px;
     font-size: 18px;
+    resize: none;
+}
+article section .section_main .txt_count {
+    position: absolute;
+    bottom: 0;
+    color: #727272;
 }
