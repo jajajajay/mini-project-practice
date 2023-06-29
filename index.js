@@ -27,7 +27,7 @@ app.use(express.static(`${__dirname}/public`));
 
 app.get('/', (request, response) => {
     fs.readFile('public/memo.html', 'utf-8', (error, data) => {
-        connection.query('SELECT * FROM memo ORDER BY UNIX_TIMESTAMP(date) ASC', (error, results) => {
+        connection.query('SELECT * FROM memo ORDER BY UNIX_TIMESTAMP(date) DESC', (error, results) => {
             if (error) {
                 throw error;
             }
@@ -42,7 +42,7 @@ app.get('/', (request, response) => {
 
 app.get('/menu1', (request, response) => {
     fs.readFile('public/menu1.html', 'utf-8', (error, data) => {
-        connection.query("SELECT * FROM memo WHERE menu = 'menu1'", (error, results) => {
+        connection.query("SELECT * FROM memo WHERE menu = 'menu1' ORDER BY UNIX_TIMESTAMP(date) DESC", (error, results) => {
             if (error) {
                 throw error;
             }
@@ -57,7 +57,7 @@ app.get('/menu1', (request, response) => {
 
 app.get('/menu2', (request, response) => {
     fs.readFile('public/menu2.html', 'utf-8', (error, data) => {
-        connection.query("SELECT * FROM memo WHERE menu = 'menu2'", (error, results) => {
+        connection.query("SELECT * FROM memo WHERE menu = 'menu2' ORDER BY UNIX_TIMESTAMP(date) DESC", (error, results) => {
             if (error) {
                 throw error;
             }
