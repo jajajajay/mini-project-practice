@@ -27,7 +27,7 @@ app.use(express.static(`${__dirname}/public`));
 
 app.get('/', (request, response) => {
     fs.readFile('public/memo.html', 'utf-8', (error, data) => {
-        connection.query('SELECT * FROM memo ORDER BY date ASC', (error, results) => {
+        connection.query('SELECT * FROM memo ORDER BY UNIX_TIMESTAMP(c_date_time) ASC', (error, results) => {
             if (error) {
                 throw error;
             }
