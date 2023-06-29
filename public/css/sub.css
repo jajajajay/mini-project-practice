@@ -51,12 +51,13 @@ article section .section_header {
     padding-right: 4.81px;
 }
 article section .section_header select {
-    appearance: none;
+    /* appearance: none; */
     float: left;
     border: none;
     outline: none;
     background: transparent;
-    line-height: 46.7px;
+    margin-top: 16px;
+    /* line-height: 46.7px; */
     margin-right: 10px;
     padding: 0 10px;
 }
